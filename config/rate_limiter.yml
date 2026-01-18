@@ -1,0 +1,6 @@
+rate_limiter:
+  enabled: true
+  burst_limit: 100
+  sustained_limit: 50
+  window_ms: 60000
+  algorithm: token_bucket
