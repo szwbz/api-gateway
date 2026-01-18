@@ -1,6 +1,6 @@
 {
   "server": {
-    "timeout": 30,
+    "timeout": 60,
     "host": "localhost",
     "port": 8080
   }
