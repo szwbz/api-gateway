@@ -1,0 +1,40 @@
+# API Gateway Logging Configuration
+
+logging:
+  # Log level settings
+  level:
+    root: INFO
+    com.example.api: DEBUG
+    org.springframework: WARN
+    
+  # Appenders configuration
+  appenders:
+    console:
+      enabled: true
+      pattern: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+      
+    file:
+      enabled: true
+      currentLogFilename: ./logs/api-gateway.log
+      archivedLogFilenamePattern: ./logs/api-gateway-%d{yyyy-MM-dd}.log
+      maxFileSize: 100MB
+      totalSizeCap: 1GB
+      maxHistory: 30
+      
+  # HTTP request logging
+  http:
+    enabled: true
+    includeClientInfo: true
+    includeQueryString: true
+    includePayload: true
+    maxPayloadLength: 1000
+    
+  # Metrics logging
+  metrics:
+    enabled: true
+    interval: 60s
+    include:
+      - request_count
+      - error_rate
+      - response_time
+      - active_connections
